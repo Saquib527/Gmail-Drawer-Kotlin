@@ -12,6 +12,7 @@ import com.saquib.gmaildrawer2.Retrofit.RetrofitClient
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.saquib.gmaildrawer2.Adapter.MatchAdapter
+import com.saquib.gmaildrawer2.MainActivity
 import com.saquib.gmaildrawer2.Model.ResponseModel
 import retrofit2.Call
 import retrofit2.Callback
@@ -30,6 +31,10 @@ class MatchesFragment : Fragment() {
         //in this method we initialize the views
         listMatch = view.findViewById(R.id.list_match)
         progressBar = view.findViewById(R.id.progress_circular)
+
+        //changing toolbar title
+        (activity as MainActivity).supportActionBar?.title = getString(R.string.matches)
+
 
         //load data or api call should be made here
         val retrofitApi = RetrofitClient.retrofit?.create(RetrofitApi::class.java)

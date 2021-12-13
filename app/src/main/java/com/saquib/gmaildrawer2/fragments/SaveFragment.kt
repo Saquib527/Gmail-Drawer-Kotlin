@@ -10,6 +10,7 @@ import android.widget.ListView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.saquib.gmaildrawer2.Adapter.MatchAdapter
+import com.saquib.gmaildrawer2.MainActivity
 import com.saquib.gmaildrawer2.Model.ResponseModel.Venue
 import com.saquib.gmaildrawer2.R
 import com.saquib.gmaildrawer2.SqLite.DatabaseHelper
@@ -24,6 +25,10 @@ class SaveFragment : Fragment() {
                               savedInstanceState: Bundle?): View? { // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_save, container, false)
         listMatch = view.findViewById(R.id.list_saved)
+
+        //changing toolbar title
+        (activity as MainActivity).supportActionBar?.title = getString(R.string.saved)
+
         databaseHelper = DatabaseHelper(activity)
         //load data from sqlite
         async().execute()
